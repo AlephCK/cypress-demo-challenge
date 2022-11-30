@@ -20,16 +20,12 @@ jobs:
         if: ${{ steps.list-changed-specs.outputs.specsN > 0 && steps.list-changed-specs.outputs.specsN < 5 }}
         uses: cypress-io/github-action@v4.1.0
         with:
-          group: '1. Changed specs'
           spec: ${{ steps.list-changed-specs.outputs.specs }}
           headless: true
-          record: false
       - name: Cypress run
         uses: cypress-io/github-action@v4.1.0
         with:
-          group: '2. All Cypress specs'
           lint: npm run lint-check
           spec: cypress/integration/specs/*.js
           browser: chrome
           headless: true
-          record: false
