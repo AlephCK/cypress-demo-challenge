@@ -22,7 +22,7 @@ module.exports = defineConfig({
     charts: true,
     inline: true,
     overwrite: false,
-    autoOpen: true,
+    autoOpen: false,
     timestamp: "longDate",
   },
   e2e: {

@@ -1,4 +1,5 @@
 import { pimElements } from "../elements-data/pim-employees-elements";
+import { employeeInfo } from '../../support/inputData';
 
 export function clickAddEmployeeButton() {
   cy.get(pimElements.addEmployeeButton.selector)
@@ -16,25 +17,30 @@ export function fillEmployeeFullName() {
 }
 
 export function validateEmployeeFields() {
-  Object
-    .entries(pimElements.addEmployeeFormElements.employeeFullNameTextFields)
-    .forEach(([, value]) => {
-      cy.get(value.selector)
-        .should('have.value', value.text)
-    });
+  cy.get(pimElements.addEmployeeFormElements.employeeFullNameTextFields.employeeFirstName.selector)
+    .should('have.value', employeeInfo.employeeData.firstName);
 }
 
 export function checkPersonalDetails() {
-  let name = pimElements.addEmployeeFormElements.employeeFullNameTextFields.employeeFirstName + ' ' + pimElements.addEmployeeFormElements.employeeFullNameTextFields.employeeLastName;
-  cy.waitUntil(() => cy.get(pimElements.employeePersonalDetailsElements.employeeNameDetailTitle)
-    .should('contain.text', name), {
-      timeout: 2500,
-      interval: 100
-  });
+  cy.get(pimElements.employeePersonalDetailsElements.employeeImage.selector)
+    .should('be.visible');
+
+  cy.get(pimElements.employeePersonalDetailsElements.employeePersonalDetailHeader.selector)
+    .should('be.visible')
+    .should('contain.text', pimElements.employeePersonalDetailsElements.employeePersonalDetailHeader.text);
 }
 
 export function clickSaveButton() {
+  cy.intercept({
+    method: 'GET',
+    url: '**/personal-details'
+  }).as('call');
+
   cy.get(pimElements.addEmployeeFormElements.submitButton.selector)
   .should('contains.text', pimElements.addEmployeeFormElements.submitButton.text)
   .click();
+
+  cy.wait('@call').then(({response}) => {
+    expect(response.statusCode).to.eq(200);
+  });
 }

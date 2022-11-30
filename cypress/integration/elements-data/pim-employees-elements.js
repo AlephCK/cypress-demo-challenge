@@ -1,4 +1,4 @@
-import { employeeData } from '../../support/inputData';
+import { employeeInfo } from '../../support/inputData';
 
 const addEmployeeButton = {
   selector: '.orangehrm-header-container > .oxd-button',
@@ -7,17 +7,17 @@ const addEmployeeButton = {
 
 const employeeFirstName = {
   selector: 'input[name="firstName"]',
-  text: employeeData.firstName
+  text: employeeInfo.employeeData.firstName
 }
 
 const employeeMiddleName = {
   selector: 'input[name="middleName"]',
-  text: employeeData.middleName
+  text: employeeInfo.employeeData.middleName
 }
 
 const employeeLastName = {
   selector: 'input[name="lastName"]',
-  text: employeeData.lastName
+  text: employeeInfo.employeeData.lastName
 }
 
 const submitButton = {
@@ -25,8 +25,17 @@ const submitButton = {
   text: 'Save'
 }
 
+const employeePersonalDetailHeader = {
+  selector: '.orangehrm-edit-employee-content > :nth-child(1) > .oxd-text--h6',
+  text: 'Personal Details'
+}
+
 const employeeNameDetailTitle = {
   selector: '.orangehrm-edit-employee-name > .oxd-text'
+}
+
+const employeeImage = {
+  selector: '.employee-image'
 }
 
 const employeeFullNameTextFields = {
@@ -36,7 +45,9 @@ const employeeFullNameTextFields = {
 }
 
 const employeePersonalDetailsElements = {
-  employeeNameDetailTitle
+  employeePersonalDetailHeader,
+  employeeNameDetailTitle,
+  employeeImage
 }
 
 const addEmployeeFormElements = {

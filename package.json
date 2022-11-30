@@ -6,8 +6,8 @@
   "scripts": {
     "pretest": "rm -rf cypress/reports && mkdir cypress/reports",
     "cy:open": "npx cypress open",
-    "cy:electron": "npx cypress run --spec 'cypress/e2e/specs/*'",
-    "cy:chrome": "npx cypress run --browser chrome",
+    "cy:electron": "npm run pretest && npx cypress run --spec 'cypress/e2e/specs/*'",
+    "cy:chrome": "npm run pretest && npx cypress run --browser chrome",
     "lint-check": "npx eslint ./cypress/",
     "lint-fix": "npx eslint --fix ./cypress/"
   },
