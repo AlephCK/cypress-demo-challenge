@@ -33,7 +33,8 @@ jobs:
         with:
           spec: ${{ steps.list-changed-specs.outputs.specs }}
           headless: true
-      - name: Run all Cyppress specs
+          record: false
+      - name: Cypress run
         uses: cypress-io/github-action@v4.1.0
         with:
           spec: cypress/integration/specs/*.js
