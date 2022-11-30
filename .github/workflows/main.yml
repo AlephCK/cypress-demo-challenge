@@ -23,6 +23,7 @@ jobs:
           group: '1. Changed specs'
           spec: ${{ steps.list-changed-specs.outputs.specs }}
           headless: true
+          record: false
       - name: Cypress run
         uses: cypress-io/github-action@v4.1.0
         with:
@@ -31,3 +32,4 @@ jobs:
           spec: cypress/integration/specs/*.js
           browser: chrome
           headless: true
+          record: false
