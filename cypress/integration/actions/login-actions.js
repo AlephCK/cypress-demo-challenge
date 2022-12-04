@@ -35,13 +35,9 @@ export function logoutUser(){
     url: '**/auth/login'
   }).as('call');
 
-  cy.on('uncaught:exception', (err, runnable) => {
-    expect(err.message).to.include('Cannot read properties of undefined')
-
-    done()
-
+  Cypress.on('uncaught:exception', (err, runnable) => {
     return false
-  })
+})
 
   cy.get(loginElements.logoutMenuItem.selector)
     .should('be.visible')
