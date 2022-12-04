@@ -1,4 +1,4 @@
-import { generalElements } from "../elements-data/general-elements";
+import { generalElements } from '../elements-data/general-elements';
 
 
 export function checkTopbarHeaderText(text) {
@@ -11,7 +11,7 @@ export function checkDashboardNavButton() {
     .should('be.visible')
     .within(() => {
       cy.contains( generalElements.dashboardNavMenuOption.text);
-    })
+    });
 }
 
 export function clickMainMenuItem(option) {
@@ -19,7 +19,7 @@ export function clickMainMenuItem(option) {
     .within(() => {
       cy.contains(option)
         .click();
-    })
+    });
 }
 
 export function checkCompanyLogo() {
