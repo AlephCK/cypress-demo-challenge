@@ -56,7 +56,7 @@ const employeeNameSearchField = {
 };
 
 const searchButton = {
-  selector: 'button[type="submit"]',
+  selector: '.oxd-form-actions > .oxd-button--secondary',
   text: 'Search'
 };
 
