@@ -41,3 +41,10 @@ jobs:
           spec: cypress/integration/specs/*.js
           browser: chrome
           headless: true
+      - name: Cypress Test Reports
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Test Reports
+          path: |
+            ./cypress/reports/
