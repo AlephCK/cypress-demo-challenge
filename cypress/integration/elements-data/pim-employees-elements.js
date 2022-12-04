@@ -4,6 +4,7 @@ const addEmployeeButton = {
   selector: '.orangehrm-header-container > .oxd-button',
   text: 'Add'
 };
+};
 
 const employeeFirstName = {
   selector: 'input[name="firstName"]',
@@ -26,12 +27,7 @@ const employeeLastName = {
 const submitButton = {
   selector: 'button[type=submit]',
   text: 'Save'
-};
-
-const employeeFirstRow = {
-  selector: '#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-container > div > div.oxd-table-body > div > div',
-  noRowsText: 'No Records Found'
-};
+}
 
 const employeePersonalDetailHeader = {
   selector: '.orangehrm-edit-employee-content > :nth-child(1) > .oxd-text--h6',
@@ -45,7 +41,6 @@ const employeeNameDetailTitle = {
 const employeeImage = {
   selector: '.employee-image'
 };
-
 const employeeSaveButton = {
   selector: '.oxd-button',
   text: 'Save'
