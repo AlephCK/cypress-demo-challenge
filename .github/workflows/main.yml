@@ -44,4 +44,4 @@ jobs:
         if: ${{ always() }}
         with:
           name: Test Reports
-          path: |
+          path: cypress/reports/*.html
