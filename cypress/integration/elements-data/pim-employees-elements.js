@@ -7,8 +7,8 @@ const addEmployeeButton = {
 
 const employeeFirstName = {
   selector: 'input[name="firstName"]',
-  text: 'James',
-  text2: 'John'
+  text: 'Cyberto',
+  text2: 'Buggerto'
 };
 
 const employeeMiddleName = {
@@ -26,11 +26,6 @@ const employeeLastName = {
 const submitButton = {
   selector: 'button[type=submit]',
   text: 'Save'
-};
-
-const employeeFirstRow = {
-  selector: '#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-container > div > div.oxd-table-body > div > div',
-  noRowsText: 'No Records Found'
 };
 
 const employeePersonalDetailHeader = {
@@ -58,6 +53,11 @@ const employeeNameSearchField = {
 const searchButton = {
   selector: '.oxd-form-actions > .oxd-button--secondary',
   text: 'Search'
+};
+
+const employeeFirstRow = {
+  selector: '#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-container > div > div.oxd-table-body > div > div',
+  noRowsText: 'No Records Found'
 };
 
 const editEmployeeButton = {
@@ -94,7 +94,7 @@ const searchEmployeeFormElements = {
   deleteEmployeeButton
 };
 
-export const pimElements = {
+export const pimEmployeeElements = {
   addEmployeeButton,
   addEmployeeFormElements,
   employeePersonalDetailsElements,

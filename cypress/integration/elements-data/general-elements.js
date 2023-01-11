@@ -2,6 +2,10 @@ const topbarHeader = {
   selector: '.oxd-topbar-header-breadcrumb > .oxd-text',
 };
 
+const sidePanelMenu = {
+  selector: '.oxd-sidepanel-body'
+};
+
 const dashboardNavMenuOption = {
   navSelector: '.active',
   textSelector: '.oxd-text',
@@ -9,7 +13,8 @@ const dashboardNavMenuOption = {
 };
 
 const mainMenuItem = {
-  selector: '.oxd-main-menu-item'
+  selector: '.oxd-main-menu-item',
+  textSelector: '.oxd-text'
 };
 
 const companyLogo = {
@@ -31,6 +36,11 @@ const modalDeleteButton = {
   text: 'Yes, Delete'
 };
 
+const saveButton = {
+  selector: '.oxd-button--secondary',
+  text: 'Save'
+};
+
 const modalElements ={
   modalBody,
   modalTitle,
@@ -39,6 +49,8 @@ const modalElements ={
 
 export const generalElements = {
   topbarHeader,
+  sidePanelMenu,
+  saveButton,
   dashboardNavMenuOption,
   mainMenuItem,
   companyLogo,

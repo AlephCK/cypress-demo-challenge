@@ -1,3 +1,10 @@
+# Test Artifacts
 cypress/reports
+cypress/screenshots
+cypress/videos
+
+# Dependencies
 node_modules
-node_modules
+
+# Local Files
+.DS_store

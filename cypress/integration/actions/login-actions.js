@@ -36,8 +36,8 @@ export function logoutUser(){
   }).as('call');
 
   Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-})
+    return false;
+  });
 
   cy.get(loginElements.logoutMenuItem.selector)
     .should('be.visible')
