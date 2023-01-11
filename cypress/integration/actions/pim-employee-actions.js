@@ -17,23 +17,7 @@ export function fillEmployeeFullName(useSecondaryText = false) {
         .type(`{selectall}${useSecondaryText ? value.text2 : value.text}`, { delay: 60 });
     });
 
-  if (useSecondaryText == false) {
-    cy.get(pimEmployeeElements.addEmployeeFormElements.employeeIDField.selector)
-      .invoke('text').as('emp_id');
-  }
-
   clickSaveButton();
-
-  cy.get('body').then((body) => {
-    if(body.find(pimEmployeeElements.addEmployeeFormElements.warningEmployeeIdMessage.selector).text == pimEmployeeElements.addEmployeeFormElements.warningEmployeeIdMessage.text){
-      let sum = this.emp_id + 1;
-      cy.get(pimEmployeeElements.addEmployeeFormElements.employeeIDField.selector)
-        .clear()
-        .type(`{selectall}${sum}`, { delay: 60 });
-
-      clickSaveButton();
-    }
-  });
 }
 
 export function validateEmployeeFields(secondaryText = false) {
@@ -55,7 +39,7 @@ export function clickSearchButton() {
   cy.get(pimEmployeeElements.searchEmployeeFormElements.searchButton.selector)
     .should('be.visible')
     .should('contain.text', pimEmployeeElements.searchEmployeeFormElements.searchButton.text)
-    .click();
+    .click({ force: true });
 }
 
 export function searchEmployeeByName(firstName, isDeleted = false) {

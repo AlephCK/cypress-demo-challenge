@@ -1,6 +1,5 @@
 import { generalElements } from '../elements-data/general-elements';
 
-
 export function checkTopbarHeaderText(text) {
   cy.get(generalElements.topbarHeader.selector)
     .should('contain.text', text)
@@ -15,11 +14,18 @@ export function checkDashboardNavButton() {
 }
 
 export function clickMainMenuItem(option) {
-  cy.get(generalElements.mainMenuItem.selector)
+  cy.get(generalElements.sidePanelMenu.selector)
     .within(() => {
       cy.contains(option)
         .click();
     });
+}
+
+export function clickSaveButton() {
+  cy.get(generalElements.saveButton.selector)
+    .should('contains.text', generalElements.saveButton.text)
+    .first()
+    .click({ force: true });
 }
 
 export function checkCompanyLogo() {

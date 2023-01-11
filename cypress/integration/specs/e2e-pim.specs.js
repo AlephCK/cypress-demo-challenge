@@ -1,15 +1,14 @@
 import { loginUser } from '../actions/login-actions';
-import { clickMainMenuItem, checkTopbarHeaderText } from '../actions/general-actions';
+import { clickMainMenuItem, checkTopbarHeaderText, clickSaveButton } from '../actions/general-actions';
 import {
   clickAddEmployeeButton,
   fillEmployeeFullName,
-  clickSaveButton,
   deleteEmployee,
   validateEmployeeFields,
   checkPersonalDetails,
   searchEmployeeByName,
   updateEmployee
-} from '../actions/pim-actions';
+} from '../actions/pim-employee-actions';
 
 context('E2E: PIM Tests', () => {
 
@@ -30,18 +29,18 @@ context('E2E: PIM Tests', () => {
   });
 
   it('Search an employee', () =>{
-    searchEmployeeByName('James');
+    searchEmployeeByName('Cyberto');
   });
 
   it('Update an employee', () => {
-    searchEmployeeByName('James');
+    searchEmployeeByName('Cyberto');
     updateEmployee();
     validateEmployeeFields(true);
   });
 
   it('Delete an employee', () =>{
-    searchEmployeeByName('John');
+    searchEmployeeByName('Buggerto');
     deleteEmployee();
-    searchEmployeeByName('John', true);
+    searchEmployeeByName('Buggerto', true);
   });
 });

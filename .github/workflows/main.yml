@@ -25,14 +25,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '13.x'
-      - name: Run changed Cypress specs first
-         # it makes sense to run changed specs only if there are a few
-         # otherwise just run all specs in the next step
-        if: ${{ steps.list-changed-specs.outputs.specsN > 0 && steps.list-changed-specs.outputs.specsN < 5 }}
-        uses: cypress-io/github-action@v4.1.0
-        with:
-          spec: ${{ steps.list-changed-specs.outputs.specs }}
-          headless: true
       - name: Run all Cyppress specs
         uses: cypress-io/github-action@v4.1.0
         with:
