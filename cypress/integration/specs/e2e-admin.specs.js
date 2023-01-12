@@ -9,6 +9,7 @@ context('E2E: Admin Tests', () => {
     checkTopbarHeaderText('Dashboard');
     clickMainMenuItem('Admin');
     checkTopbarHeaderText('Admin');
+    checkAdminPage();
   });
 
   it('Add a system User', () => {
@@ -16,7 +17,6 @@ context('E2E: Admin Tests', () => {
     checkAddUserForm();
     fillSystemUserFields();
     checkToast();
-    checkAdminPage();
   });
 
   it('Search a system User', () => {

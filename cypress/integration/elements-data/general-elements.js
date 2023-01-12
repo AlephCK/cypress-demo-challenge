@@ -47,6 +47,7 @@ const saveButton = {
 };
 
 const searchButton = {
+  bodySelector: '.oxd-table-filter',
   selector: '.oxd-form-actions > .oxd-button--secondary',
   text: 'Search'
 };

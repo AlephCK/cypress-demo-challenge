@@ -20,10 +20,13 @@ export function clickAddButton() {
 }
 
 export function clickSearchButton() {
-  cy.get(generalElements.searchButton.selector)
-    .should('be.visible')
-    .should('contain.text', generalElements.searchButton.text)
-    .click({ force: true });
+  cy.get(generalElements.searchButton.bodySelector)
+    .within(() => {
+      cy.get(generalElements.searchButton.selector)
+        .should('be.visible')
+        .should('contain.text', generalElements.searchButton.text)
+        .click({ force: true });
+    })
 }
 
 export function clickMainMenuItem(option) {
