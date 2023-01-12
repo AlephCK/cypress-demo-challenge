@@ -1,12 +1,7 @@
 import { pimEmployeeElements } from '../elements-data/pim-employees-elements';
-import { generalElements } from '../elements-data/general-elements';
-import { clickSaveButton } from './general-actions';
 
-export function clickAddEmployeeButton() {
-  cy.get(pimEmployeeElements.addEmployeeButton.selector)
-    .should('contains.text', pimEmployeeElements.addEmployeeButton.text)
-    .click();
-}
+import { clickSaveButton, clickSearchButton } from './general-actions';
+import { generalElements } from '../elements-data/general-elements';
 
 export function fillEmployeeFullName(useSecondaryText = false) {
   Object
@@ -25,7 +20,6 @@ export function validateEmployeeFields(secondaryText = false) {
     .should('have.value', secondaryText ? pimEmployeeElements.addEmployeeFormElements.employeeFullNameTextFields.employeeFirstName.text2 : pimEmployeeElements.addEmployeeFormElements.employeeFullNameTextFields.employeeFirstName.text);
 }
 
-
 export function checkPersonalDetails() {
   cy.get(pimEmployeeElements.employeePersonalDetailsElements.employeeImage.selector)
     .should('be.visible');
@@ -33,13 +27,6 @@ export function checkPersonalDetails() {
   cy.get(pimEmployeeElements.employeePersonalDetailsElements.employeePersonalDetailHeader.selector)
     .should('be.visible')
     .should('contain.text', pimEmployeeElements.employeePersonalDetailsElements.employeePersonalDetailHeader.text);
-}
-
-export function clickSearchButton() {
-  cy.get(pimEmployeeElements.searchEmployeeFormElements.searchButton.selector)
-    .should('be.visible')
-    .should('contain.text', pimEmployeeElements.searchEmployeeFormElements.searchButton.text)
-    .click({ force: true });
 }
 
 export function searchEmployeeByName(firstName, isDeleted = false) {
