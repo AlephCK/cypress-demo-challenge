@@ -26,6 +26,7 @@ context('E2E: Admin Tests', () => {
 
   it('Delete a system User', () => {
     searchSystemUser();
+    validateUserSearch();
     deleteUserRow();
     checkToast('Deleted');
   });
