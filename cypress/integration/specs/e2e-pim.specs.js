@@ -1,7 +1,12 @@
 import { loginUser } from '../actions/login-actions';
-import { clickMainMenuItem, checkTopbarHeaderText, clickSaveButton } from '../actions/general-actions';
 import {
-  clickAddEmployeeButton,
+  clickMainMenuItem,
+  checkTopbarHeaderText,
+  clickSaveButton,
+  clickAddButton,
+  checkToast
+} from '../actions/general-actions';
+import {
   fillEmployeeFullName,
   deleteEmployee,
   validateEmployeeFields,
@@ -21,9 +26,10 @@ context('E2E: PIM Tests', () => {
   });
 
   it('Add a new employee', () => {
-    clickAddEmployeeButton();
+    clickAddButton();
     fillEmployeeFullName();
     clickSaveButton();
+    checkToast();
     validateEmployeeFields();
     checkPersonalDetails();
   });
@@ -35,12 +41,15 @@ context('E2E: PIM Tests', () => {
   it('Update an employee', () => {
     searchEmployeeByName('Cyberto');
     updateEmployee();
+    checkToast('Updated');
     validateEmployeeFields(true);
   });
 
   it('Delete an employee', () =>{
     searchEmployeeByName('Buggerto');
     deleteEmployee();
+    checkToast('Deleted');
     searchEmployeeByName('Buggerto', true);
+    checkToast('No Records Found');
   });
 });

@@ -1,10 +1,5 @@
 import { employeeInfo } from '../../support/inputData';
 
-const addEmployeeButton = {
-  selector: '.orangehrm-header-container > .oxd-button',
-  text: 'Add'
-};
-
 const employeeFirstName = {
   selector: 'input[name="firstName"]',
   text: 'Cyberto',
@@ -50,11 +45,6 @@ const employeeNameSearchField = {
   selector: ':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-autocomplete-wrapper > .oxd-autocomplete-text-input > input'
 };
 
-const searchButton = {
-  selector: '.oxd-form-actions > .oxd-button--secondary',
-  text: 'Search'
-};
-
 const employeeFirstRow = {
   selector: '#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-container > div > div.oxd-table-body > div > div',
   noRowsText: 'No Records Found'
@@ -88,14 +78,12 @@ const addEmployeeFormElements = {
 
 const searchEmployeeFormElements = {
   employeeNameSearchField,
-  searchButton,
   employeeFirstRow,
   editEmployeeButton,
   deleteEmployeeButton
 };
 
 export const pimEmployeeElements = {
-  addEmployeeButton,
   addEmployeeFormElements,
   employeePersonalDetailsElements,
   searchEmployeeFormElements

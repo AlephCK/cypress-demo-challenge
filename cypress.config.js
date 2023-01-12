@@ -9,6 +9,10 @@ module.exports = defineConfig({
   experimentalWebKitSupport: true,
   viewportWidth: 1366,
   chromeWebSecurity: false,
+  retries: {
+    runMode: 1,
+    openMode: 0
+  },
   env: {
     url: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
   },
