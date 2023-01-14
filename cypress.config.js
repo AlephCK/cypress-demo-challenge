@@ -10,11 +10,11 @@ module.exports = defineConfig({
   viewportWidth: 1366,
   chromeWebSecurity: false,
   retries: {
-    runMode: 1,
+    runMode: 2,
     openMode: 0
   },
   env: {
-    url: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+    url: 'https://opensource-demo.orangehrmlive.com/web/index.php',
   },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {

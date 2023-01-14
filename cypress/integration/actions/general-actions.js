@@ -16,17 +16,19 @@ export function checkDashboardNavButton() {
 export function clickAddButton() {
   cy.get(generalElements.addButton.selector)
     .should('contains.text', generalElements.addButton.text)
-    .click();
+    .scrollIntoView()
+    .click({ force: true });
 }
 
 export function clickSearchButton() {
   cy.get(generalElements.searchButton.bodySelector)
     .within(() => {
       cy.get(generalElements.searchButton.selector)
+        .scrollIntoView()
         .should('be.visible')
         .should('contain.text', generalElements.searchButton.text)
         .click({ force: true });
-    })
+    });
 }
 
 export function clickMainMenuItem(option) {

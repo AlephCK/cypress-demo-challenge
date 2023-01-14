@@ -1,8 +1,15 @@
 import { systemUserElements } from '../elements-data/system-users-elements';
-import { clickSaveButton, clickSearchButton } from './general-actions';
 import { generalElements } from '../elements-data/general-elements';
 
-export function fillSystemUserFields() {
+import { clickSaveButton, clickSearchButton } from './general-actions';
+
+export function fillSystemUserFields(useSecondaryText = false) {
+
+  if (useSecondaryText){
+    cy.get(systemUserElements.changePasswordCheck.selector)
+      .click();
+  }
+
   cy.get(systemUserElements.addUserFormBody.selector)
     .within(() => {
       Object
@@ -10,32 +17,43 @@ export function fillSystemUserFields() {
         .forEach(([, value]) => {
           cy.get(value.selector)
             .clear()
-            .type(`{selectall}${value.text}`, { delay: 60 });
+            .type(`{selectall}${useSecondaryText ? value.text2 : value.text}`, { delay: 60 });
         });
 
-      cy.get(systemUserElements.employeeNameField.selector)
-        .type(systemUserElements.employeeNameField.firstOptionText.slice(0, -9), {delay: 100});
-      cy.contains(systemUserElements.employeeNameField.firstOptionText)
-        .click();
+      if (!useSecondaryText) {
+        cy.get(systemUserElements.employeeNameField.selector)
+          .clear()
+          .type(systemUserElements.employeeNameField.firstOptionText.slice(0, -9), {delay: 100});
+        cy.contains(systemUserElements.employeeNameField.firstOptionText)
+          .click();
 
-      cy.get(systemUserElements.statusDropdownField.selector)
-        .click();
-      cy.contains(systemUserElements.statusDropdownField.firstOptionSelectText)
-        .click();
+        cy.get(systemUserElements.statusDropdownField.selector)
+          .click();
+        cy.contains(systemUserElements.statusDropdownField.firstOptionSelectText)
+          .click();
 
-      cy.get(systemUserElements.userRoleDropdownField.selector)
-        .click();
-      cy.contains(systemUserElements.userRoleDropdownField.firstOptionSelectText)
-        .click();
+        cy.get(systemUserElements.userRoleDropdownField.selector)
+          .click();
+        cy.contains(systemUserElements.userRoleDropdownField.firstOptionSelectText)
+          .click();
+      }
     });
 
   clickSaveButton();
 }
 
-export function checkAddUserForm() {
+export function checkAddUserForm(isEditForm = false) {
   cy.get(systemUserElements.AddSystemUserHeader.selector)
     .should('be.visible')
-    .should('contain.text', systemUserElements.AddSystemUserHeader.text);
+    .then((header) => {
+      if (isEditForm){
+        cy.wrap(header)
+          .should('contain.text', systemUserElements.AddSystemUserHeader.text2);
+      } else {
+        cy.wrap(header)
+          .should('contain.text', systemUserElements.AddSystemUserHeader.text);
+      }
+    });
 }
 
 export function checkAdminPage() {
@@ -44,28 +62,51 @@ export function checkAdminPage() {
     .should('contain.text', systemUserElements.systemUserHeader.text);
 }
 
-export function searchSystemUser() {
+export function searchSystemUser(useSecondaryText = false) {
   cy.get(systemUserElements.systemUserTextFields.usernameField.searchSelector)
     .should('be.visible')
-    .type(systemUserElements.systemUserTextFields.usernameField.text);
+    .type(`{selectall}${useSecondaryText ?
+      systemUserElements.systemUserTextFields.usernameField.text2 :
+      systemUserElements.systemUserTextFields.usernameField.text}`,
+    { delay: 60 }
+    ).blur();
 
   clickSearchButton();
 }
 
-export function validateUserSearch() {
+export function validateUserSearch(useUpdatedUser = false) {
   cy.get(systemUserElements.userFirstRow.selector)
     .within(() => {
-      cy.contains(systemUserElements.systemUserTextFields.usernameField.text)
-        .should('be.visible');
+      if (useUpdatedUser) {
+        cy.contains(systemUserElements.systemUserTextFields.usernameField.text2)
+          .should('be.visible');
+      } else {
+        cy.contains(systemUserElements.systemUserTextFields.usernameField.text)
+          .should('be.visible');
+      }
     });
+}
+
+export function updateUser() {
+  cy.get(systemUserElements.userFirstRow.selector)
+    .within(() => {
+      cy.get(generalElements.editPencilButton.selector)
+        .should('be.visible')
+        .click();
+    });
+
+  checkAddUserForm(true);
+  fillSystemUserFields(true);
+
+  clickSaveButton();
 }
 
 export function deleteUserRow() {
   cy.get(systemUserElements.userFirstRow.selector)
     .within(() => {
-      cy.get(systemUserElements.deleteUser.selector)
+      cy.get(generalElements.deleteTrashButton.selector)
         .should('be.visible')
-        .click();
+        .click({ force: true });
     });
 
   cy.get(generalElements.modalElements.modalBody.selectorBody)
