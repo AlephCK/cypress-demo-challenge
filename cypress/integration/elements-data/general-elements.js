@@ -48,8 +48,16 @@ const saveButton = {
 
 const searchButton = {
   bodySelector: '.oxd-table-filter',
-  selector: '.oxd-form-actions > .oxd-button--secondary',
+  selector: 'button[type="submit"]',
   text: 'Search'
+};
+
+const editPencilButton = {
+  selector: '.bi-pencil-fill'
+};
+
+const deleteTrashButton = {
+  selector: '.bi-trash'
 };
 
 const toastNotification = {
@@ -72,6 +80,8 @@ export const generalElements = {
   topbarHeader,
   sidePanelMenu,
   saveButton,
+  editPencilButton,
+  deleteTrashButton,
   searchButton,
   addButton,
   dashboardNavMenuOption,

@@ -1,6 +1,7 @@
 const AddSystemUserHeader = {
   selector: '.orangehrm-card-container > .oxd-text--h6',
-  text: 'Add User'
+  text: 'Add User',
+  text2: 'Edit User'
 };
 
 const systemUserHeader = {
@@ -14,10 +15,6 @@ const addUserFormBody = {
 
 const userFirstRow = {
   selector: '.oxd-table-card > .oxd-table-row'
-};
-
-const deleteUser = {
-  selector: '.oxd-table-cell-actions > :nth-child(1)'
 };
 
 const userRoleDropdownField = {
@@ -38,18 +35,25 @@ const statusDropdownField = {
 const usernameField = {
   selector: ':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-input',
   searchSelector: ':nth-child(2) > .oxd-input',
-  text: 'Test-Admin'
+  text: 'Test-Admin',
+  text2: 'QA-Admin'
 };
 
 const passwordField = {
   selector: '.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input',
   confirmPasswordSelector: ':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input',
-  text: 'Test-Admin123'
+  text: 'Test-Admin123',
+  text2: 'QA-Admin123'
 };
 
 const confirmPasswordField = {
   selector: ':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input',
-  text: 'Test-Admin123'
+  text: 'Test-Admin123',
+  text2: 'QA-Admin123'
+};
+
+const changePasswordCheck = {
+  selector: '.oxd-checkbox-input-icon',
 };
 
 const systemUserTextFields = {
@@ -62,10 +66,10 @@ export const systemUserElements = {
   AddSystemUserHeader,
   systemUserHeader,
   userFirstRow,
-  deleteUser,
   addUserFormBody,
   employeeNameField,
   statusDropdownField,
   userRoleDropdownField,
+  changePasswordCheck,
   systemUserTextFields
 };

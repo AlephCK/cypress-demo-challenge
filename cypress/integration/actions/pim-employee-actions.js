@@ -33,7 +33,8 @@ export function searchEmployeeByName(firstName, isDeleted = false) {
   cy.get(pimEmployeeElements.searchEmployeeFormElements.employeeNameSearchField.selector)
     .should('be.visible')
     .clear()
-    .type(firstName);
+    .type(firstName)
+    .blur();
 
   cy.intercept({
     method: 'GET',
@@ -65,17 +66,14 @@ export function searchEmployeeByName(firstName, isDeleted = false) {
 }
 
 export function updateEmployee() {
-  cy.get(pimEmployeeElements.searchEmployeeFormElements.editEmployeeButton.selector)
+  cy.get(generalElements.editPencilButton.selector)
     .first()
     .click();
 
   checkPersonalDetails();
   fillEmployeeFullName(true);
 
-  cy.get(generalElements.saveButton.selector)
-    .first()
-    .should('contain.text', generalElements.saveButton.text)
-    .click();
+  clickSaveButton();
 }
 
 export function deleteEmployee() {
@@ -83,7 +81,7 @@ export function deleteEmployee() {
     .should('be.visible')
     .each($row => {
       cy.wrap($row).within(() => {
-        cy.get(pimEmployeeElements.searchEmployeeFormElements.deleteEmployeeButton.selector)
+        cy.get(generalElements.deleteTrashButton.selector)
           .first()
           .click({ force: true });
       });
@@ -104,4 +102,19 @@ export function deleteEmployee() {
         .should('contain.text', generalElements.modalElements.modalDeleteButton.text)
         .click();
     });
+}
+
+export function updateAdminUserEmployee() {
+  cy.get(pimEmployeeElements.addEmployeeFormElements.employeeFullNameTextFields.employeeFirstName.selector)
+    .clear()
+    .type('Paul');
+
+  cy.get(pimEmployeeElements.addEmployeeFormElements.employeeFullNameTextFields.employeeMiddleName.selector)
+    .clear();
+
+  cy.get(pimEmployeeElements.addEmployeeFormElements.employeeFullNameTextFields.employeeLastName.selector)
+    .clear()
+    .type('Collings');
+
+  clickSaveButton();
 }
