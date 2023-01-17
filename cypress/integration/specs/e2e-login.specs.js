@@ -14,19 +14,19 @@ context('E2E: Login Tests', () => {
   });
 
   it('Login with valid credentials', () => {
-    loginUser(Cypress.env('TEST_USER'), Cypress.env('TEST_PASSWORD'));
+    loginUser(Cypress.env('user').testUser, Cypress.env('user').testPassword);
     checkTopbarHeaderText('Dashboard');
     checkDashboardNavButton();
     checkCompanyLogo();
   });
 
   it('Login with invalid credentials', () => {
-    loginUser(Cypress.env('TEST_USER'), '1Nv@L1d');
+    loginUser(Cypress.env('user').testUser, '1Nv@L1d');
     checkInvalidCredentials();
   });
 
   it('Logout', () => {
-    loginUser(Cypress.env('TEST_USER'), Cypress.env('TEST_PASSWORD'));
+    loginUser(Cypress.env('user').testUser, Cypress.env('user').testPassword);
     checkTopbarHeaderText('Dashboard');
     logoutUser();
     checkLoginPage();

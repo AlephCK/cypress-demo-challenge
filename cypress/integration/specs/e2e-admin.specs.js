@@ -6,7 +6,7 @@ import { updateAdminUserEmployee } from '../actions/pim-employee-actions';
 context('E2E: Admin Tests', () => {
   before(() => {
     cy.visit(Cypress.env('url'));
-    loginUser(Cypress.env('TEST_USER'), Cypress.env('TEST_PASSWORD'));
+    loginUser(Cypress.env('user').testUser, Cypress.env('user').testPassword);
     checkTopbarHeaderText('Dashboard');
     cy.visit(Cypress.env('url') + '/pim/viewPersonalDetails/empNumber/27');
     updateAdminUserEmployee();
@@ -16,7 +16,7 @@ context('E2E: Admin Tests', () => {
 
   beforeEach(() => {
     cy.visit(Cypress.env('url'));
-    loginUser(Cypress.env('TEST_USER'), Cypress.env('TEST_PASSWORD'));
+    loginUser(Cypress.env('user').testUser, Cypress.env('user').testPassword);
     checkTopbarHeaderText('Dashboard');
     clickMainMenuItem('Admin');
     checkTopbarHeaderText('Admin');

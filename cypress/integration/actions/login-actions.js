@@ -6,7 +6,7 @@ export function loginUser(username, password) {
     .should('have.value', username);
 
   cy.get(loginElements.passwordField.selector)
-    .type(password)
+    .type(password, {log: false})
     .should('have.value', password);
 
   cy.get(loginElements.loginButton.selector)

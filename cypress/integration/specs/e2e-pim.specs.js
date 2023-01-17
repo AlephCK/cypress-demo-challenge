@@ -19,7 +19,7 @@ context('E2E: PIM Tests', () => {
 
   beforeEach(() => {
     cy.visit(Cypress.env('url'));
-    loginUser(Cypress.env('TEST_USER'), Cypress.env('TEST_PASSWORD'));
+    loginUser(Cypress.env('user').testUser, Cypress.env('user').testPassword);
     checkTopbarHeaderText('Dashboard');
     clickMainMenuItem('PIM');
     checkTopbarHeaderText('PIM');
