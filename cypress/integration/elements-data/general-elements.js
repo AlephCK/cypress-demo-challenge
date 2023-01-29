@@ -1,5 +1,5 @@
 const topbarHeader = {
-  selector: '.oxd-topbar-header-breadcrumb > .oxd-text',
+  selector: '.oxd-topbar-header-breadcrumb > .oxd-text'
 };
 
 const sidePanelMenu = {

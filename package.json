@@ -1,13 +1,14 @@
 {
   "name": "automation-challenge",
   "version": "1.0.0",
-  "description": "This project is part of the Senior Automation challenge to automate some test cases of OrangeHRM.",
+  "description": "This project is part of the Senior Automation challenge to automate functional test cases of OrangeHRM and API tests for Marvel Website",
   "main": "index.js",
   "scripts": {
     "pretest": "rm -rf cypress/reports && mkdir cypress/reports",
-    "cy:open": "npx cypress open",
-    "cy:electron": "npm run pretest && npx cypress run --spec 'cypress/integration/specs/*'",
-    "cy:chrome": "npm run pretest && npx cypress run --browser chrome",
+    "open-gui": "npx cypress open",
+    "run-all-specs": "npm run pretest && npx cypress run --spec 'cypress/integration/specs/**/*'",
+    "run-api":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-api/*'",
+    "run-e2e":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-orange-hrm-e2e/*'",
     "lint-check": "npx eslint ./cypress/",
     "lint-fix": "npx eslint --fix ./cypress/"
   },
@@ -16,20 +17,14 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@faker-js/faker": "^7.6.0",
-    "cross-env": "^7.0.3",
-    "cypress": "^12.3.0",
+    "blueimp-md5": "^2.19.0",
+    "cypress": "^12.4.1",
     "cypress-mochawesome-reporter": "^3.2.3",
-    "cypress-real-events": "^1.7.6",
-    "cypress-wait-until": "^1.7.2",
-    "eslint": "^8.31.0",
+    "cypress-plugin-api": "^2.10.0",
+    "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.7.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1",
     "eslint-webpack-plugin": "^3.2.0",
-    "mocha": "^10.2.0",
-    "playwright-webkit": "^1.29.2"
+    "mocha": "^10.2.0"
   }
 }

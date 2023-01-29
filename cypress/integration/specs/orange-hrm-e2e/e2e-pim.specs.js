@@ -1,11 +1,11 @@
-import { loginUser } from '../actions/login-actions';
+import { loginUser } from '../../actions/login-actions';
 import {
   clickMainMenuItem,
   checkTopbarHeaderText,
   clickSaveButton,
   clickAddButton,
   checkToast
-} from '../actions/general-actions';
+} from '../../actions/general-actions';
 import {
   fillEmployeeFullName,
   deleteEmployee,
@@ -13,7 +13,7 @@ import {
   checkPersonalDetails,
   searchEmployeeByName,
   updateEmployee
-} from '../actions/pim-employee-actions';
+} from '../../actions/pim-employee-actions';
 
 context('E2E: PIM Tests', () => {
 

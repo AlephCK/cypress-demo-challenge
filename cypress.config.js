@@ -6,7 +6,6 @@ module.exports = defineConfig({
   viewportHeight: 900,
   numTestsKeptInMemory: 20,
   defaultCommandTimeout: 6000,
-  experimentalWebKitSupport: true,
   viewportWidth: 1366,
   chromeWebSecurity: false,
   retries: {
@@ -15,6 +14,10 @@ module.exports = defineConfig({
   },
   env: {
     url: 'https://opensource-demo.orangehrmlive.com/web/index.php',
+    apiUrl: 'https://gateway.marvel.com:443/v1/public',
+    hideCredentials: true,
+    snapshotOnly: true,
+    requestMode: true
   },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {

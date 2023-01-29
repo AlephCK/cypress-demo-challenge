@@ -1,7 +1,7 @@
-import { loginUser, logoutUser, checkLoginPage } from '../actions/login-actions';
-import { fillSystemUserFields, checkAddUserForm, checkAdminPage, searchSystemUser, validateUserSearch, deleteUserRow, updateUser } from '../actions/system-users-actions';
-import { checkTopbarHeaderText, clickAddButton, clickMainMenuItem, checkToast } from '../actions/general-actions';
-import { updateAdminUserEmployee } from '../actions/pim-employee-actions';
+import { loginUser, logoutUser, checkLoginPage } from '../../actions/login-actions';
+import { fillSystemUserFields, checkAddUserForm, checkAdminPage, searchSystemUser, validateUserSearch, deleteUserRow, updateUser } from '../../actions/system-users-actions';
+import { checkTopbarHeaderText, clickAddButton, clickMainMenuItem, checkToast } from '../../actions/general-actions';
+import { updateAdminUserEmployee } from '../../actions/pim-employee-actions';
 
 context('E2E: Admin Tests', () => {
   before(() => {
