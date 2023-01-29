@@ -6,7 +6,6 @@ module.exports = defineConfig({
   viewportHeight: 900,
   numTestsKeptInMemory: 20,
   defaultCommandTimeout: 6000,
-  experimentalWebKitSupport: true,
   viewportWidth: 1366,
   chromeWebSecurity: false,
   retries: {
