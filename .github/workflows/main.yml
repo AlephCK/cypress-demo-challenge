@@ -33,7 +33,7 @@ jobs:
       - name: Run all Cyppress specs
         uses: cypress-io/github-action@v4.1.0
         with:
-          spec: cypress/integration/specs/*.js
+          spec: cypress/integration/specs/**/*.js
           browser: chrome
           headless: true
         env:
