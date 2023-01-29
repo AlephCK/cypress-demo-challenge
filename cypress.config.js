@@ -15,6 +15,10 @@ module.exports = defineConfig({
   },
   env: {
     url: 'https://opensource-demo.orangehrmlive.com/web/index.php',
+    apiUrl: 'https://gateway.marvel.com:443/v1/public',
+    hideCredentials: true,
+    snapshotOnly: true,
+    requestMode: true
   },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {

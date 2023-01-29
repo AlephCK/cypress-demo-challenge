@@ -53,7 +53,7 @@ const confirmPasswordField = {
 };
 
 const changePasswordCheck = {
-  selector: '.oxd-checkbox-input-icon',
+  selector: '.oxd-checkbox-input-icon'
 };
 
 const systemUserTextFields = {

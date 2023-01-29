@@ -1,10 +1,10 @@
-import { checkDashboardNavButton, checkCompanyLogo, checkTopbarHeaderText } from '../actions/general-actions';
+import { checkDashboardNavButton, checkCompanyLogo, checkTopbarHeaderText } from '../../actions/general-actions';
 import {
   loginUser,
   checkInvalidCredentials,
   logoutUser,
   checkLoginPage
-} from '../actions/login-actions';
+} from '../../actions/login-actions';
 
 context('E2E: Login Tests', () => {
 

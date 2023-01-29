@@ -36,6 +36,9 @@ jobs:
           spec: cypress/integration/specs/*.js
           browser: chrome
           headless: true
+        env:
+          # pass GitHub token to detect new build vs re-run build
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Cypress Test Reports
         uses: actions/upload-artifact@v2
         if: ${{ always() }}
