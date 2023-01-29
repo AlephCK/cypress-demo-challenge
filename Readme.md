@@ -54,7 +54,7 @@ git clone git@github.com:AlephCK/AutomationChallenge.git
 
 ### Dev Install
 
-* Install all dependencies
+Install all dependencies
 
 ```bash
 npm install
