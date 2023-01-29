@@ -6,9 +6,9 @@
   "scripts": {
     "pretest": "rm -rf cypress/reports && mkdir cypress/reports",
     "open-gui": "npx cypress open",
-    "run-all-specs": "npm run pretest && npx cypress run --spec 'cypress/integration/specs/*'",
-    "run-api":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-api/*'",
-    "run-e2e":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-orange-hrm-e2e/*'",
+    "run-all-specs": "npm run pretest && npx cypress run --spec 'cypress/integration/specs/**/*.js'",
+    "run-api":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-api/*.js'",
+    "run-e2e":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-orange-hrm-e2e/*.js'",
     "lint-check": "npx eslint ./cypress/",
     "lint-fix": "npx eslint --fix ./cypress/"
   },
