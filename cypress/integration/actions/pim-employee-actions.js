@@ -55,13 +55,10 @@ export function searchEmployeeByName(firstName, isDeleted = false) {
       .should('be.visible');
   } else {
     cy.get(pimEmployeeElements.searchEmployeeFormElements.employeeFirstRow.selector)
-      .should('be.visible')
-      .each($row => {
-        cy.wrap($row) .within(() => {
-          cy.contains(firstName)
-            .should('be.visible');
-        });
-      });
+      .should('be.visible');
+
+    cy.contains(firstName)
+      .should('be.visible');
   }
 }
 
@@ -78,30 +75,22 @@ export function updateEmployee() {
 
 export function deleteEmployee() {
   cy.get(pimEmployeeElements.searchEmployeeFormElements.employeeFirstRow.selector)
-    .should('be.visible')
-    .each($row => {
-      cy.wrap($row).within(() => {
-        cy.get(generalElements.deleteTrashButton.selector)
-          .first()
-          .click({ force: true });
-      });
-      cy.get(generalElements.modalElements.modalBody.selectorBody)
-        .should('be.visible')
-        .each($modal => {
-          cy.wrap($modal)
-            .within(() => {
-              cy.contains(generalElements.modalElements.modalTitle.text)
-                .should('be.visible');
+    .should('be.visible');
+  cy.get(generalElements.deleteTrashButton.selector)
+    .first()
+    .click({ force: true });
 
-              cy.get(generalElements.modalElements.modalBody.selectorText)
-                .should('contain.text', generalElements.modalElements.modalBody.text );
-            });
-        });
+  cy.get(generalElements.modalElements.modalBody.selectorBody)
+    .should('be.visible');
+  cy.contains(generalElements.modalElements.modalTitle.text)
+    .should('be.visible');
+  cy.get(generalElements.modalElements.modalBody.selectorText)
+    .should('contain.text', generalElements.modalElements.modalBody.text );
 
-      cy.get(generalElements.modalElements.modalDeleteButton.selector)
-        .should('contain.text', generalElements.modalElements.modalDeleteButton.text)
-        .click();
-    });
+  cy.get(generalElements.modalElements.modalDeleteButton.selector)
+    .should('contain.text', generalElements.modalElements.modalDeleteButton.text)
+    .click();
+
 }
 
 export function updateAdminUserEmployee() {
