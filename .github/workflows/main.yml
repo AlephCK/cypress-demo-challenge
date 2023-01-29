@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '13.x'
-      - name: Run all Cyppress specs
+      - name: Run all Cypress specs
         uses: cypress-io/github-action@v4.1.0
         with:
           spec: cypress/integration/specs/**/*.js
