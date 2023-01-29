@@ -1,24 +1,24 @@
 # Senior Automation Challenge Project
 
-This project contains the Senior Automation Challenge project that consists of:
+This project contains the Senior Automation Challenge project from Winston Cruz that consists of:
 - Automate 10 test cases for the Orange HRM web application
 - Automate 3 API Calls to Marvel API Endpoints, and also automate its invalid scenarios
 
 ## UI Testing
 The framework containst the following 11 test cases for the webapp https://opensource-demo.orangehrmlive.com/web/index.php/:
 
-* Login
+**Login**
 1. Login
 2. Invalid Login
 3. Logout
 
-* PIM Employees
+**PIM Employees**
 4. Add an Employee
 5. Update an Employee
 6. Search an Employee
 7. Remove an Employee
 
-* Admin Users
+**Admin Users**
 8. Add a System User
 9. Update a System User
 10. Search a System User
@@ -45,6 +45,13 @@ For the API testing it was required to be automated 3 request to the Marvel Comi
 
 ## General Requirements
 
+### Clone the repo
+
+Using SSH
+```bash
+git clone git@github.com:AlephCK/AutomationChallenge.git
+```
+
 ### Dev Install
 
 * Install all dependencies
@@ -54,6 +61,8 @@ npm install
 ```
 
 ### Using credentials to run Cypress Tests
+
+First, create a Marvel developer account and follow their official documentation here: https://developer.marvel.com/documentation/getting_started, in order to get the API Keys that are needed to run this project.
 
 We use the `cypress.env.json` to add the credentials used for both API and e2e specs tests:
 
@@ -70,15 +79,20 @@ We use the `cypress.env.json` to add the credentials used for both API and e2e s
 }
 ```
 
-In order to get the Marvel API keys, create a developer account and follow their official documentation here: https://developer.marvel.com/documentation/getting_started
-
 ### How To Use Cypress
 
-The following commands can be used in order to run the test cases
+The following commands can be used in order to run the test cases:
 
 Open Cypress UI
 ```bash
 npm run open-gui
+```
+
+#### Linux and Mac Users
+
+Removes test reports
+```bash
+npm run pretest
 ```
 
 Run all specs (both API and e2e)
@@ -96,6 +110,28 @@ Run the API tests
 npm run run-api
 ```
 
+#### Windows Users
+
+Removes test reports
+```bash
+npm run pretest-windows
+```
+
+Run all specs (both API and e2e)
+```bash
+npm run windows-run-all-specs
+```
+
+Run the e2e tests
+```bash
+npm run windows-run-e2e
+```
+
+Run the API tests
+```bash
+npm run windows-run-api
+```
+
 ### Before doing a commit
 
 Run ESLint to fix any typos
@@ -105,5 +141,21 @@ npm run lint-fix
 
 Run ESLint to look out for any typos
 ```bash
-npm run lint
+npm run lint-check
 ```
+
+### Insomnia Setup
+- All the API tests (valid and invalid) were done using Insomnia. The collection is also included in this repository in case it's needed.
+   - To test this, a hash md5 is required, you can use the following [website](https://www.md5.cz) to generate it. The format is the following:
+   ```quote
+    md5(ts+marvelPrivateKey+marvelPublicKey)
+
+    Ex:
+      ts:1000
+      marvelPrivateKey: abcdef
+      marvelPublicKey: 123456
+
+      md5(1000abcdef123456)
+   ```
+- Once the hash is generated, on Insomnia you'll need to import the Insomnia collection file located on the folder `Insomnia API Colletction` on the root folder of this project. To import the file, click on `Create > Import from File` or click `Insomnia > Settings > Data > Import Data`
+Once the collection is imported, click on `No Environment > Manage Environments > Base Environment` and add the apiKey (which is the publicKey provided by Marvel Developer API) and the hash.

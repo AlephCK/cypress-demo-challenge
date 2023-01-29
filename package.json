@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "pretest": "rm -rf cypress/reports && mkdir cypress/reports",
+    "pretest-windows": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports",
     "open-gui": "npx cypress open",
     "run-all-specs": "npm run pretest && npx cypress run --spec 'cypress/integration/specs/**/*'",
     "run-api":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-api/*'",
     "run-e2e":"npm run pretest && npx cypress run --spec 'cypress/integration/specs/marvel-orange-hrm-e2e/*'",
+    "windows-run-all-specs": "npm run pretest-windows && npx cypress run --spec 'cypress/integration/specs/**/*'",
+    "windows-run-api":"npm run pretest-windows && npx cypress run --spec 'cypress/integration/specs/marvel-api/*'",
+    "windows-run-e2e":"npm run pretest-windows && npx cypress run --spec 'cypress/integration/specs/marvel-orange-hrm-e2e/*'",
     "lint-check": "npx eslint ./cypress/",
     "lint-fix": "npx eslint --fix ./cypress/"
   },
