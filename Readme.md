@@ -1,5 +1,4 @@
 # Senior Automation Challenge Project
-
 This project contains the Senior Automation Challenge project from Winston Cruz that consists of:
 - Automate 10 test cases for the Orange HRM web application
 - Automate 3 API Calls to Marvel API Endpoints, and also automate its invalid scenarios
@@ -25,7 +24,6 @@ The framework containst the following 11 test cases for the webapp https://opens
 11. Remove a System User
 
 ## API Testing
-
 For the API testing it was required to be automated 3 request to the Marvel Comics API Marvel Developer Site.
 1. Automate that all the characters can be fetch.
 2. Automate that all the comics for Spiderman can be fetch.
@@ -45,8 +43,7 @@ For the API testing it was required to be automated 3 request to the Marvel Comi
 
 ## General Requirements
 
-### Clone the repo
-
+### Clone the Repository
 Using SSH
 ```bash
 git clone git@github.com:AlephCK/AutomationChallenge.git
@@ -61,8 +58,7 @@ npm install
 ```
 
 ### Using credentials to run Cypress Tests
-
-First, create a Marvel developer account and follow their official documentation here: https://developer.marvel.com/documentation/getting_started, in order to get the API Keys that are needed to run this project.
+First, create a Marvel Developers account and follow their official documentation here: https://developer.marvel.com/documentation/getting_started, in order to get the API Keys that are needed to run this project.
 
 We use the `cypress.env.json` to add the credentials used for both API and e2e specs tests:
 
@@ -80,7 +76,6 @@ We use the `cypress.env.json` to add the credentials used for both API and e2e s
 ```
 
 ### How To Use Cypress
-
 The following commands can be used in order to run the test cases:
 
 Open Cypress UI
