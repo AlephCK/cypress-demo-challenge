@@ -38,6 +38,38 @@ context('Fetch All Comics from Character', () =>  {
   });
 
   describe('Invalid Scenarios', () => {
+    it('GET All Comics from Invalid Character Id', function() {
+      cy.request({
+        method: 'GET',
+        url: Cypress.env('apiUrl') + '/characters/test/comics',
+        failOnStatusCode: false,
+        qs: {
+          limit: apiData.limit,
+          ts: apiData.timeStamp,
+          apikey: apiData.publicKey,
+          hash: hash.md5Hash
+        }
+      }).then((response) => {
+          expect(response.status).to.eq(409);
+          expect(response.body.status).to.be.eq('You must pass at least one valid character if you set the character filter.');
+        });
+    });
 
+    it('GET All Comics without a Character Id', function() {
+      cy.request({
+        method: 'GET',
+        url: Cypress.env('apiUrl') + '/characters/comics',
+        failOnStatusCode: false,
+        qs: {
+          limit: apiData.limit,
+          ts: apiData.timeStamp,
+          apikey: apiData.publicKey,
+          hash: hash.md5Hash
+        }
+      }).then((response) => {
+          expect(response.status).to.eq(404);
+          expect(response.body.status).to.be.eq('We couldn\'t find that character');
+        });
+    });
   });
 });
