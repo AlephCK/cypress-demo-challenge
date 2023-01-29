@@ -7,17 +7,20 @@ This project contains the Senior Automation Challenge project from Winston Cruz 
 The framework containst the following 11 test cases for the webapp https://opensource-demo.orangehrmlive.com/web/index.php/:
 
 **Login**
+
 1. Login
 2. Invalid Login
 3. Logout
 
 **PIM Employees**
+
 4. Add an Employee
 5. Update an Employee
 6. Search an Employee
 7. Remove an Employee
 
 **Admin Users**
+
 8. Add a System User
 9. Update a System User
 10. Search a System User
