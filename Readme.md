@@ -140,17 +140,21 @@ npm run lint-check
 ```
 
 ### Insomnia Setup
-- All the API tests (valid and invalid) were done using Insomnia. The collection is also included in this repository in case it's needed.
-   - To test this, a hash md5 is required, you can use the following [website](https://www.md5.cz) to generate it. The format is the following:
-   ```quote
-    md5(ts+marvelPrivateKey+marvelPublicKey)
+All the API tests (valid and invalid) were done using Insomnia. The collection is also included in this repository in case it's needed.
 
-    Ex:
-      ts:1000
-      marvelPrivateKey: abcdef
-      marvelPublicKey: 123456
+To test this, a hash md5 is required, you can use the following [website](https://www.md5.cz) to generate it. The format is the following:
+```quote
+  md5(ts+marvelPrivateKey+marvelPublicKey)
 
-      md5(1000abcdef123456)
-   ```
-- Once the hash is generated, on Insomnia you'll need to import the Insomnia collection file located on the folder `Insomnia API Colletction` on the root folder of this project. To import the file, click on `Create > Import from File` or click `Insomnia > Settings > Data > Import Data`
+  Ex:
+    ts:1000
+    marvelPrivateKey: abcdef
+    marvelPublicKey: 123456
+
+    md5(1000abcdef123456)
+```
+Once the hash is generated, on Insomnia you'll need to import the Insomnia collection file located on the folder `Insomnia API Collection` on the root folder of this project.
+
+To import the file, click on `Create > Import from File` or click `Insomnia > Settings > Data > Import Data`.
+
 Once the collection is imported, click on `No Environment > Manage Environments > Base Environment` and add the apiKey (which is the publicKey provided by Marvel Developer API) and the hash.
