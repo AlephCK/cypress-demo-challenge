@@ -26,6 +26,8 @@ The framework containst the following 11 test cases for the webapp https://opens
 10. Search a System User
 11. Remove a System User
 
+The test case were documented on the Test Management Tool called [QA Touch](https://www.qatouch.com) before proceeding the automation work. Feel free to request me the access to the test cases if needed.
+
 ## API Testing
 For the API testing it was required to be automated 3 request to the Marvel Comics API Marvel Developer Site.
 1. Automate that all the characters can be fetch.
