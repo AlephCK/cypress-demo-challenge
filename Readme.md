@@ -152,7 +152,7 @@ To test this, a hash md5 is required, you can use the following [website](https:
   md5(ts+marvelPrivateKey+marvelPublicKey)
 
   Ex:
-    ts:1000
+    ts: 1000
     marvelPrivateKey: abcdef
     marvelPublicKey: 123456
 
