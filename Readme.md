@@ -97,17 +97,17 @@ npm run pretest
 
 Run all specs (both API and e2e)
 ```bash
-npm run run-all-specs
+npm run all-specs
 ```
 
 Run the e2e tests
 ```bash
-npm run run-e2e
+npm run e2e-specs
 ```
 
 Run the API tests
 ```bash
-npm run run-api
+npm run api-specs
 ```
 
 #### Windows Users
@@ -119,17 +119,17 @@ npm run pretest-windows
 
 Run all specs (both API and e2e)
 ```bash
-npm run windows-run-all-specs
+npm run windows-all-specs
 ```
 
 Run the e2e tests
 ```bash
-npm run windows-run-e2e
+npm run windows-e2e-specs
 ```
 
 Run the API tests
 ```bash
-npm run windows-run-api
+npm run windows-api-specs
 ```
 
 ### Before doing a commit
@@ -145,9 +145,19 @@ npm run lint-check
 ```
 
 ### Insomnia Setup
-All the API tests (valid and invalid) were done using Insomnia. The collection is also included in this repository in case it's needed.
+All the API tests (valid and invalid) were done using Insomnia.
 
-To test this, a hash md5 is required, you can use the following [website](https://www.md5.cz) to generate it. The format is the following:
+#### Install Insomnia
+Go to [insomnia.rest/download](https://insomnia.rest/download) to download the Insomnia Client and install in your preferred OS.
+
+#### Import API Collection
+Once Insomnia Client is installed, you'll need to import the Insomnia collection file located on the folder `Insomnia API Collection` on the root folder of this project.
+
+To import the file, click on `Create > Import from File` or click `Insomnia > Settings > Data > Import Data`.
+
+Once the collection is imported, click on `No Environment > Manage Environments > Base Environment` and add the apiKey (which is the publicKey provided by Marvel Developer API) and the hash.
+
+To generate the hash, you can use the following [website](https://www.md5.cz) to generate it. The format is the following:
 ```quote
   md5(ts+marvelPrivateKey+marvelPublicKey)
 
@@ -158,8 +168,5 @@ To test this, a hash md5 is required, you can use the following [website](https:
 
     md5(1000abcdef123456)
 ```
-Once the hash is generated, on Insomnia you'll need to import the Insomnia collection file located on the folder `Insomnia API Collection` on the root folder of this project.
 
-To import the file, click on `Create > Import from File` or click `Insomnia > Settings > Data > Import Data`.
-
-Once the collection is imported, click on `No Environment > Manage Environments > Base Environment` and add the apiKey (which is the publicKey provided by Marvel Developer API) and the hash.
+Where `marvelPrivateKey` and `marvelPublicKey` will be the keys provided by Marvel API Developer.
